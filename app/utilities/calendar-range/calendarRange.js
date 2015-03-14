@@ -2,6 +2,33 @@ var CalendarRange = {
 
   DAY : 24 * 60 * 60 * 1000,
 
+  getBasicDate : function() {
+
+    d = new Date();
+    month = d.getMonth();
+    year = d.getFullYear();
+    yearsArray = [];
+    monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+     for(x=year-20; x<year; x++) {
+      yearsArray.push(x);
+    }
+
+    for(x=year; x< year+20; x++) {
+      yearsArray.push(x);
+    }
+
+    return {
+
+      currentMonth : month,
+      currentYear  : year,
+      years : yearsArray,
+      months : monthsArray
+
+    };
+
+  },
+
   prepareDate : function(date) {
     date = new Date(date);
     var day = date.getDay();
