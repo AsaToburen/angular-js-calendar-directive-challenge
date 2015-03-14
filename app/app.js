@@ -1,33 +1,39 @@
 angular.module('calendarDemoApp', [])
   .controller('mainAppCtrl', function($scope) {
 
-    $scope.date = CalendarRange.getBasicDate();
-    //$scope.date = $scope.date.year[1];
-    //$scope.months = date.months;
-    //$scope.month = date.month;
-    //$scope.year = date.year;
-    //$scope.years = date.years;
+    var date = CalendarRange.getBasicDate();
+
+    $scope.date = date;
+    console.log($scope.date);
+    console.log(date.months);
+    console.log(date.currentMonth);
 
   })
   
-  .directive("calendar", function($sce){
+  .directive("calendar", function(){
     return {
       restrict: 'E',
-      template: '<div class="calendar-container"><div ng-repeat="day in days"><span>{{day.day}}</span></div></div>',
+      template: '<div class="calendar-container"><div ng-class="{bookend : day.month !== date.currentMonth }" ng-repeat="day in days"><span>{{day.day}}</span></div></div>',
       replace: true,
-      scope: true,
+      scope: true ,
       controller: function($scope, $element, $attrs) {
-        var yearSelect = $element.find();
-        console.log($element);
-        var range = CalendarRange.getMonthlyRange(new Date());
+        var params = [$scope.date.currentYear, $scope.date.currentMonth];
+        var dateParams = new Date($scope.date.currentYear, $scope.date.currentMonth);
+        var range = CalendarRange.getMonthlyRange(dateParams);
+        console.log(range);
 
         $scope.days = range.days;
         $scope.first = range.first; 
 
-        var ctrl = this;
-        console.log(ctrl);
+        $scope.$watch(params, function(newVal) {
+          $scope.apply(console.log(newVal);
+        });
 
       }
     };
   });
 // your controller and directive code go here
+
+
+//date.months[date.currentMonth]
+//"year === date.currentYear"

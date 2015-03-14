@@ -52,9 +52,11 @@ body {
   body .calendar-container {
     padding-top: 3em;
     padding-left: 1em; }
+    body .calendar-container .bookend {
+      background-color: #EEEEEE; }
     body .calendar-container div {
-      width: 10%;
-      height: 8em;
+      width: 10.5%;
+      height: 6.5em;
       border: 2px solid #E3E3E3;
       display: inline-block;
       margin-top: -5px;
