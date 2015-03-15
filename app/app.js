@@ -12,45 +12,22 @@ angular.module('calendarDemoApp', [])
       replace: true,
       scope: true,
       controller: function($scope, $element, $attrs) {
-        //var params = [$scope.date.currentYear, $scope.date.currentMonth];
         var dateParams = new Date($scope.date.currentYear, $scope.date.currentMonth);
         var range = CalendarRange.getMonthlyRange(dateParams);
-        console.log(range);
-        
-        console.log($element);
 
         $scope.days = range.days;
         $scope.first = range.first; 
 
-        $scope.$watch($attrs, function () {
-           console.log($element.parent());
-            $element.on('change', function(){
-              console.log('good');
-              //range = CalendarRange.getMonthlyRange()
+            $scope.$watch('date', function (newValue, oldValue) {
+              
+              this.range = {};
+              console.log(newValue.currentMonth, newValue.currentYear);
+              var dateUpdated = new Date(newValue.currentYear, newValue.currentMonth);
+              this.range = CalendarRange.getMonthlyRange(dateUpdated);
+              console.log(oldValue);
+              console.log(range);
+              
             });
-         // $scope.apply($scope.oldValue = $scope.value);
-         });
-         // console.log($scope.ngSelected);
-
-          //  $scope.$eval($attrs.ngSelected);
-         // });
-          console.log($scope.date);
-          
-         
-
-         //if(value !== $scope.date.month[$scope.date.currentMonth] && value !== $scope.date.currentYear) { 
-         // $scope.$apply(function() {
-           
-         //   console.log('changed');
-
-         //}
-        
-
       }
     };
   });
-// your controller and directive code go here
-
-
-//date.months[date.currentMonth]
-//"year === date.currentYear"
