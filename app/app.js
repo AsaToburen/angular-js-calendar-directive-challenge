@@ -1,8 +1,7 @@
 angular.module('calendarDemoApp', [])
   .controller('mainAppCtrl', function($scope) {
 
-    var date = CalendarRange.getBasicDate();
-    $scope.date = date;
+    $scope.date = CalendarRange.getBasicDate();
 
   })
   
@@ -17,14 +16,35 @@ angular.module('calendarDemoApp', [])
         var dateParams = new Date($scope.date.currentYear, $scope.date.currentMonth);
         var range = CalendarRange.getMonthlyRange(dateParams);
         console.log(range);
+        
+        console.log($element);
 
         $scope.days = range.days;
         $scope.first = range.first; 
-        $scope.$watch($scope.date.currentYear, function($scope) {
-          $scope.digest();
-          console.log($scope.date.currentYear);
-        });
 
+        $scope.$watch($attrs, function () {
+           console.log($element.parent());
+            $element.on('change', function(){
+              console.log('good');
+              //range = CalendarRange.getMonthlyRange()
+            });
+         // $scope.apply($scope.oldValue = $scope.value);
+         });
+         // console.log($scope.ngSelected);
+
+          //  $scope.$eval($attrs.ngSelected);
+         // });
+          console.log($scope.date);
+          
+         
+
+         //if(value !== $scope.date.month[$scope.date.currentMonth] && value !== $scope.date.currentYear) { 
+         // $scope.$apply(function() {
+           
+         //   console.log('changed');
+
+         //}
+        
 
       }
     };

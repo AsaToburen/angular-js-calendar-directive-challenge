@@ -7,12 +7,12 @@
 <body ng-controller="mainAppCtrl">
   <nav>
     
-    <select class="month">
-      <option ng-repeat="month in date.months" value="{{month}}" ng-selected="month === date.months[date.currentMonth]">{{month}}</option>
+    <select class="month" ng-model="date.months">
+      <option ng-repeat="month in date.months" value="{{month}}" ng-selected="month === date.months[date.currentMonth]" date="month">{{month}}</option>
     </select>
 
-    <select name="years">
-      <option ng-repeat="year in date.years" value="{{year}}" ng-selected="year === date.currentYear" >{{year}}</option>
+    <select name="years" ng-model="date.years">
+      <option ng-repeat="year in date.years" value="{{year}}" ng-selected="year === date.currentYear" date="year" >{{year}}</option>
     </select>
 
   </nav>
