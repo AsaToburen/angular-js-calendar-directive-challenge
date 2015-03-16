@@ -59,7 +59,8 @@ body {
       height: 6.5em;
       border: 2px solid #E3E3E3;
       display: inline-block;
-      margin-top: -5px;
+      margin-top: -2px;
+      margin-left: -2px;
       padding: 1em; }
       body .calendar-container div span {
         font-size: 1.5em; }

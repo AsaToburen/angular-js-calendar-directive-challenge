@@ -18,16 +18,11 @@ angular.module('calendarDemoApp', [])
         $scope.days = range.days;
         $scope.first = range.first; 
 
-            $scope.$watch('date', function (newValue, oldValue) {
-              
-              this.range = {};
-              console.log(newValue.currentMonth, newValue.currentYear);
-              var dateUpdated = new Date(newValue.currentYear, newValue.currentMonth);
-              this.range = CalendarRange.getMonthlyRange(dateUpdated);
-              console.log(oldValue);
-              console.log(range);
-              
-            });
-      }
-    };
+          $scope.$watch('date', function(newValue, oldValue) {
+             console.log('changed');
+             console.log(newValue);
+             console.log(oldValue);
+          }, true); 
+      }   
+    }; 
   });
