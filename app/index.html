@@ -8,7 +8,13 @@
   <nav>
     
     <select class="month" ng-model="date.month">
-      <option date="date" ng-repeat="month in date.months" ng-selected="month === date.months[date.month]">{{month}}</option>
+      <option 
+      date="date" 
+      ng-repeat="(idx, month) in date.months" 
+      ng-selected="month === date.months[date.month]"
+      ng-value="idx">
+      {{month}}
+      </option>
     </select>
 
     <select name="years" ng-model="date.year">
