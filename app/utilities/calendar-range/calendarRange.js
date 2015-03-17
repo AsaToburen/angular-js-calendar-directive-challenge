@@ -2,6 +2,8 @@ var CalendarRange = {
 
   DAY : 24 * 60 * 60 * 1000,
 
+  //Added to this file ====//
+
   getBasicDate : function() {
 
     d = new Date();
@@ -28,6 +30,8 @@ var CalendarRange = {
     };
 
   },
+
+  //==================//
 
   prepareDate : function(date) {
     date = new Date(date);
