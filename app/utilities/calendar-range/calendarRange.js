@@ -20,8 +20,8 @@ var CalendarRange = {
 
     return {
 
-      currentMonth : month,
-      currentYear  : year,
+      month : month,
+      year  : year,
       years : yearsArray,
       months : monthsArray
 
@@ -74,9 +74,9 @@ var CalendarRange = {
     return {
       first : firstDay,
       start : startDay,
-      end : endDay,
-      last : lastDay,
-      days : days
+        end : endDay,
+       last : lastDay,
+       days : days
     };
   }
 

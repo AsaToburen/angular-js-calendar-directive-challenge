@@ -8,11 +8,11 @@
   <nav>
     
     <select class="month" ng-model="date.month">
-      <option ng-repeat="month in date.months" value="{{month}}" ng-selected="month === date.months[date.currentMonth]" date="month">{{month}}</option>
+      <option date="date" ng-repeat="month in date.months" ng-selected="month === date.months[date.month]">{{month}}</option>
     </select>
 
     <select name="years" ng-model="date.year">
-      <option ng-repeat="year in date.years" value="{{year}}" ng-selected="year === date.currentYear" date="year" >{{year}}</option>
+      <option ng-repeat="year in date.years" ng-selected="year === date.year">{{year}}</option>
     </select>
 
   </nav>
